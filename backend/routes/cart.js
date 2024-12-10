@@ -18,17 +18,40 @@ router.put("/add-cart",authenticateToken,async(req,res)=>{
     }
 });
 
-router.put("/remove-fromCart/:bookid",authenticateToken,async(req,res)=>{
-    try{
-        const {bookid} = req.params;
-        const {id} = req.headers;
-        await User.findByIdAndDelete(id,{$pull:{cart:bookid}});
-        return res.json({status:"success",message:"successfully removed from cart"});
-    }
-    catch(err){
-        return res.status(500).json({message:"Internal server error"+err});
+// router.put("/remove-fromCart/:bookid",authenticateToken,async(req,res)=>{
+//     try{
+//         const {bookid} = req.params;
+//         const {id} = req.headers;
+//         await User.findByIdAndDelete(id,{$pull:{cart:bookid}});
+//         return res.json({status:"success",message:"successfully removed from cart"});
+//     }
+//     catch(err){
+//         return res.status(500).json({message:"Internal server error"+err});
+//     }
+// });
+router.put("/remove-fromCart/:bookid", authenticateToken, async (req, res) => {
+    try {
+        const { bookid } = req.params;
+        const { id } = req.headers;
+
+        // Use findByIdAndUpdate with the $pull operator
+        const updatedUser = await User.findByIdAndUpdate(
+            id,
+            { $pull: { cart: { _id: bookid } } },  // Assuming `cart` is an array of objects with `_id`
+            { new: true }  // Return the updated document
+        );
+
+        if (!updatedUser) {
+            return res.status(404).json({ message: "User not found." });
+        }
+
+        return res.json({ status: "success", message: "Successfully removed from cart" });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ message: "Internal server error: " + err.message });
     }
 });
+
 
 router.get("/get-user-cart",authenticateToken,async (req,res)=>{
     try{
