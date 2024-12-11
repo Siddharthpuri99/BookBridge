@@ -30,6 +30,6 @@ function RecentlyAdded() {
         </div>
     </div>
   )
-}
+};
 
 export default RecentlyAdded
