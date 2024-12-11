@@ -23,7 +23,7 @@ router.post("/placed-order",authenticateToken,async(req,res)=>{
     catch(err){
         return res.status(500).json({message:"Internal server error",err});
     }
-});
+})
 router.get("/get-order-history",authenticateToken,async(req,res)=>{
     try{
             const{id} = req.headers;
