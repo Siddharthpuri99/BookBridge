@@ -16,7 +16,7 @@ router.put("/add-book-to-favourite",authenticateToken,async(req,res)=>{
     catch(err){
         return res.status(500).json({message:"Internal server error"+err});
     }
-});
+})
 
 router.delete("/remove-favourite-book",authenticateToken,async(req,res)=>{
     try{
