@@ -16,7 +16,7 @@ app.use("/api/v1",userroute);
 app.use("/api/v1",bookroute);
 app.use("/api/v1",favouriteRoute);
 app.use("/api/v1",cartRoute);
-app.use("/api/v1",orderRoute);
+app.use("/api/v1",orderRoute)
 
 
 app.get("/",(req,res)=>{
