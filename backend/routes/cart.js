@@ -63,5 +63,5 @@ router.get("/get-user-cart",authenticateToken,async (req,res)=>{
     catch(err){
         return res.status(500).json({message:"Internal Server error"+err});
     }
-});
+})
 module.exports = router;
