@@ -36,7 +36,7 @@ router.post("/signUp",async (req,res)=>{
     catch(err){
         return res.status(500).json({message:err});
     }
-});
+})
 
 //sign-In..............................................
 
