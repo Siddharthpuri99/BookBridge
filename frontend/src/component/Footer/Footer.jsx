@@ -6,6 +6,6 @@ function Footer() {
       <h1 className="text-2xl font-semibold text-center">&copy; 2024 , Made with Love</h1>
     </div>
   )
-}
+},
 
 export default Footer;
