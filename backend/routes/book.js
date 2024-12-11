@@ -55,7 +55,7 @@ router.get("/get-allbook",async(req,res)=>{
     }catch(err){
         return res.status(500).json({message:"Internal server err"+err});
     }
-})
+});
 
 //delete
 
