@@ -17,5 +17,5 @@ export default function Hero() {
     <img src={img} className='w-100' alt='...'/>
     </div>
     </div>
-  )
+  );
 }
