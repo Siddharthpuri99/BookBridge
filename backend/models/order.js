@@ -14,5 +14,5 @@ const order = new mongoose.Schema({
         enum:["order placed","out for delivery" , "canceled","delivered"],
     },
 
-},{timestamps:true});
+},{timestamps:true})
 module.exports = mongoose.model("orders",order);
